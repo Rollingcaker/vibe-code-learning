@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- 声明这是 HTML5 文档，浏览器按现代规则解析 -->
+
+<html lang="zh-CN">
+  <!-- 页面根元素；lang 表示主要语言是简体中文 -->
+
+  <head>
+    <!-- head：给浏览器的说明（编码、标题、样式引用等），一般不直接显示在页面正文中 -->
+
+    <meta charset="UTF-8" />
+    <!-- 使用 UTF-8 编码，中文和符号能正确显示 -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 让手机浏览器按屏幕宽度适配，避免页面缩得太小 -->
+
+    <title>我的编程学习之旅</title>
+    <!-- 浏览器标签页上显示的标题 -->
+
+    <!-- ========== 样式：放在单独文件 styles.css 里（第二部分） ========== -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- rel 说明这是样式表；href 指向同目录下的 CSS 文件 -->
+  </head>
+
+  <body>
+    <!-- body：用户在页面上能看到的所有内容都放在这里 -->
+
+    <main>
+      <!-- main：表示这一整块是页面的主要内容，语义更清晰 -->
+
+      <h1>我的编程学习之旅</h1>
+      <!-- h1：一级标题，通常一页只有一个 -->
+
+      <p class="subtitle">2026年4月12日</p>
+      <!-- 带 class 的段落，日期副标题，样式由 CSS 里的 .subtitle 控制 -->
+
+      <p>这是我的第一个 AI 生成网页</p>
+      <!-- 普通说明文字 -->
+
+      <button type="button" onclick="alert('你好，世界！')">点我试试</button>
+      <!-- type="button" 表示普通按钮；onclick 里写点击时要执行的简短脚本 -->
+
+      <p class="after-button">今天是2026年4月12日，周日晚上</p>
+      <!-- 主按钮下方的小字说明 -->
+
+      <!-- ========== 待办事项：结构（内容由 script.js 动态添加） ========== -->
+      <section class="todo-section" aria-labelledby="todo-heading">
+        <!-- section：把「待办」单独成一块；aria-labelledby 关联下面标题，辅助无障碍 -->
+
+        <h2 id="todo-heading" class="todo-heading">待办事项</h2>
+        <!-- h2：二级标题；id 供上面的 aria-labelledby 引用 -->
+
+        <!-- ========== 待办统计：数字由 script.js 实时更新 ========== -->
+        <div class="todo-stats" aria-live="polite">
+          <!-- aria-live="polite"：数字变化时，读屏软件会温和播报更新 -->
+          <span>总任务：<strong id="todo-total">0</strong>个</span>
+          <span>已完成：<strong id="todo-done">0</strong>个</span>
+          <span>待完成：<strong id="todo-todo">0</strong>个</span>
+        </div>
+
+        <div class="todo-form">
+          <!-- 一行里放输入框和添加按钮，用 CSS flex 横排 -->
+
+          <input
+            type="text"
+            id="todo-input"
+            placeholder="输入任务内容…"
+            autocomplete="off"
+            maxlength="200"
+          />
+          <!-- 单行文本输入；id 供 JavaScript 用 getElementById 找到它 -->
+
+          <button type="button" id="todo-add">添加</button>
+          <!-- 点击后由 script.js 把任务加到下面的列表里 -->
+        </div>
+
+        <ul id="todo-list" class="todo-list"></ul>
+        <!-- ul：无序列表；开始是空的，每条任务会作为 li 被 JS 插进来 -->
+      </section>
+    </main>
+
+    <!-- ========== 行为逻辑：单独文件 script.js ========== -->
+    <script src="script.js"></script>
+    <!-- 浏览器会加载并执行 script.js；放在 body 末尾，保证上面的 HTML 先存在 -->
+  </body>
+</html>
