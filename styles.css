@@ -1,0 +1,207 @@
+/* ========== 第一部分：全局盒模型 ========== */
+/* 作用：让所有元素按「边框 + 内边距」计算宽高，布局更直观 */
+* {
+  box-sizing: border-box;
+}
+
+/* ========== 第二部分：页面主体（背景、字体、整体居中） ========== */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+  background: #e3f2fd;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+/* ========== 第三部分：主内容区域宽度与对齐 ========== */
+main {
+  max-width: 36rem;
+  text-align: center;
+}
+
+/* ========== 第四部分：大标题样式 ========== */
+h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* ========== 第五部分：副标题（日期那一行） ========== */
+.subtitle {
+  margin: 0 0 1.5rem;
+  font-size: 1rem;
+  color: #5c6370;
+  font-weight: 500;
+}
+
+/* ========== 第六部分：普通段落文字 ========== */
+p {
+  margin: 0 0 2rem;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: #3d4450;
+}
+
+/* ========== 第七部分：主按钮（蓝色「点我试试」「添加」等） ========== */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #fff;
+  background: #2563eb;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
+  transition: background 0.2s ease, transform 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+button:hover {
+  background: #1d4ed8;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* ========== 第八部分：主按钮下方那行小字 ========== */
+.after-button {
+  margin: 1.25rem 0 0;
+  font-size: 0.9375rem;
+  color: #5c6370;
+}
+
+/* ========== 第九部分：待办整块区域（与上方内容分隔） ========== */
+.todo-section {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(37, 99, 235, 0.18);
+  text-align: left;
+}
+
+/* ========== 第十部分：待办小标题「待办事项」 ========== */
+.todo-heading {
+  margin: 0 0 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e293b;
+  text-align: center;
+}
+
+/* ========== 第十一部分：输入框 + 添加按钮 横向排列 ========== */
+.todo-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ========== 第十二部分：任务输入框外观与聚焦效果 ========== */
+#todo-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid #bfdbfe;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+  color: #1a1a1a;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#todo-input::placeholder {
+  color: #94a3b8;
+}
+
+#todo-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* ========== 第十三部分：表单里的「添加」按钮略收窄内边距 ========== */
+.todo-form #todo-add {
+  flex-shrink: 0;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* ========== 第十四部分：任务列表（去掉默认圆点、纵向排列） ========== */
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ========== 第十五部分：每一条任务的外观（卡片式） ========== */
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  background: rgba(255, 255, 255, 0.82);
+  border-radius: 10px;
+  border: 1px solid rgba(37, 99, 235, 0.14);
+  box-shadow: 0 1px 3px rgba(30, 58, 138, 0.06);
+}
+
+/* ========== 第十六部分：每条任务前的复选框 ========== */
+.todo-check {
+  width: 1.125rem;
+  height: 1.125rem;
+  accent-color: #2563eb;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ========== 第十七部分：任务文字（中间自适应宽度） ========== */
+.todo-text {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #3d4450;
+  word-break: break-word;
+}
+
+/* ========== 第十八部分：勾选后文字变灰并划线（由 CSS 完成，不用 JS） ========== */
+.todo-item:has(.todo-check:checked) .todo-text {
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+/* ========== 第十九部分：删除按钮（浅色描边，与主按钮区分） ========== */
+button.todo-delete {
+  flex-shrink: 0;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #64748b;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #cbd5e1;
+  box-shadow: none;
+}
+
+button.todo-delete:hover {
+  color: #dc2626;
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+button.todo-delete:active {
+  transform: scale(0.98);
+}
