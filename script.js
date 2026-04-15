@@ -19,7 +19,7 @@
   var todoEl = document.getElementById("todo-todo"); // 待完成数
 
   // 后端服务地址（你的 Flask 运行在本机 5000 端口）
-  var API_BASE = "http://demoncm.pythonanywhere.com";
+  var API_BASE = "https://demoncm.pythonanywhere.com";
 
   function apiUrl(path) {
     // 统一拼接 URL，避免到处写重复字符串
